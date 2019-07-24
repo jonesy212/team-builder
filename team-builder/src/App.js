@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-const [member, setTeamMember] = useState({username: '', password: ''});
+const [member, setTeamMember] = useState({username: '', email: '', role: ''});
 
 const handleChange = event => {
   setTeamMember({...member, [event.target.value]: event.target.value });
@@ -26,7 +26,7 @@ const handleSubmit = event =>  {
     {console.log (member)}
       <form onChange = {event => handleSubmit(event)}>
         <label>
-          Username: 
+          Member name: 
           <input 
             type= 'text' 
             name= 'username'
@@ -36,15 +36,23 @@ const handleSubmit = event =>  {
         </label>
           
         <label>
-          Password: 
+          Email: 
           <input 
             type= 'text'  
-            password = 'password'
-            value= {member.password}
+            email= 'email'
+            value= {member.email}
             onChange= {event => handleChange(event)}
           />
-         
         </label>
+        <label>
+          <input
+          type = 'text'
+          role= 'role'
+          value= {member.role}
+          onChange = {event => handleChange(event)}
+          />
+        </label>
+        <button>Submit</button>
       </form>
 
     </div>
